@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+* {
+    font-family: Poppins, sans-serif;
+}
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.auth-logo {
+    height: 100px;
+}
+
+.auth-img {
+    background-image: url("../images/auth-bg.png");
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.form-outline {
+    position: relative;
+}
+.form-outline input:focus + .form-label,
+.form-outline input:not(:placeholder-shown) + .form-label {
+    transform: translateY(-100%);
+    font-size: 0.9rem;
+    color: #2e95ce;
+}
+.form-outline input:not(:placeholder-shown) ~ .form-label {
+    font-size: 0.9rem;
+    color: #2e95ce;
+}
+
+.txt-fields {
+    border: 2px solid #2e95ce !important;
+}
+
+.common-btn {
+    background-color: #2e95ce !important;
+    color: white!important;
+}
+
+.btn-span {
+    color: #2e95ce;
+    font-weight: bold;
+    cursor: pointer;
+}

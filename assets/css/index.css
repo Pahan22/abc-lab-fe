@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, serif;
+}
+
+body {
+
+    background-color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.logo img {
+    width: 5vw;
+}
+
+
+.header {
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+}
+
+.company-name {
+    font-size: 30px;
+    margin-left: 150px;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+    list-style: none;
+}
+
+nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/*==========================================*/
+.main-panel {
+    width: 100%;
+    height: auto;
+    background: whitesmoke;
+    margin-top: 5vh;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.btnWidth {
+    width: 100px;
+}
+.commonBtn {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 50px;
+}
+.btnPay {
+    width: 200px;
+    background-color: #2e95ce!important;
+    color: white!important;
+    margin-top: 5%;
+    height: 40px;
+    border-radius: 20px!important;
+}
+
+/*==========================================*/
