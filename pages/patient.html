@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient - Home </title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../assets/css/index.css"/>
+    <link rel="stylesheet" href="../assets/css/mdb.min.css"/>
+    <link rel="stylesheet" href="../assets/css/patientHome.css"/>
+    <script src="../assets/js/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("Kefg6yjzsMHqy-HDF");
+        })();
+    </script>
+</head>
+<body style="overflow-x: hidden">
+
+<div class="header bg-black d-flex align-items-center">
+    <div class="logo">
+        <img src="../assets/images/3.png" alt="">
+    </div>
+    <span class="company-name">ABC Laboratory</span>
+    <div>
+        <a style="text-decoration: none" id="btnPatientAppointment" class="commonBtn">Appointment</a>
+        <a style="text-decoration: none" id="btnPatientResult" class="commonBtn">Result</a>
+        <a style="text-decoration: none; color: white" href="../../abc_lab_fe/index.html" class="commonBtn">LogOut</a>
+    </div>
+</div>
+
+
+<div class="main-panel bg-light m-0 p-0 ">
+    <div style="display: block" id="AppointmentPage">
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4 mt-4">Apply Appointment</h3>
+            <div class="col-lg-12 p-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3 bg-primary text-white">
+                                <p class="m-0 font-weight-bold">Appointment Details</p>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col" style="display: none">
+                                            <div class="form-group">
+                                                <label><strong>ID</strong></label>
+                                                <input id="pApID"
+                                                       class="form-control"
+                                                       type="text"
+                                                       placeholder="id"
+                                                       disabled
+                                                       name="pApID">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Patient ID</strong></label>
+                                                <input id="pAppPatientId"
+                                                       class="form-control"
+                                                       type="text"
+                                                       placeholder="patient id"
+                                                       disabled
+                                                       name="pAppPatientId">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>DateTime</strong></label>
+                                                <input id="pAppDateTime"
+                                                       class="form-control"
+                                                       type="datetime-local"
+                                                       placeholder="Date Time"
+                                                       name="pAppDateTime">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Doctor ID</strong></label>
+                                                <input id="pAppDoctorId"
+                                                       class="form-control"
+                                                       type="text"
+                                                       placeholder="doctor id"
+                                                       name="pAppDoctorId">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Test Result</strong></label>
+                                                <input id="pAppTestResult"
+                                                       class="form-control"
+                                                       type="text"
+                                                       disabled
+                                                       placeholder="PENDING"
+                                                       name="pAppTestResult">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Test Name</strong></label>
+                                                <select id="pAppTestingList" class="form-control">
+                                                    <option value="test1">Test 1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Fee</strong></label>
+                                                <input id="pAppFee"
+                                                       class="form-control"
+                                                       type="text"
+                                                       disabled
+                                                       value="0"
+                                                       placeholder="fee"
+                                                       name="pAppFee">
+                                            </div>
+                                        </div>
+
+                                        <div class="col">
+
+                                        </div>
+
+                                        <div class="col d-flex justify-content-center align-items-center">
+                                            <button id="btnPay" class="btn btn-sm btnPay" onclick="openModal()"
+                                                    type="button">
+                                                Pay
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center py-5">
+                        <div class="col-md-7 col-lg-5 col-xl-4">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <form>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <div class="form-outline">
+                                                <input type="text" id="typeText" class="form-control form-control-lg"
+                                                       siez="17"
+                                                       placeholder="1234 5678 9012 3457" minlength="19" maxlength="19"/>
+                                                <label class="form-label" for="typeText">Card Number</label>
+                                            </div>
+                                            <img src="https://img.icons8.com/color/48/000000/visa.png" alt="visa"
+                                                 width="64px"/>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="typeName" class="form-control form-control-lg"
+                                                       siez="17"
+                                                       placeholder="Cardholder's Name"/>
+                                                <label class="form-label" for="typeName">Cardholder's Name</label>
+                                            </div>
+                                        </div>
+                                        <!---->
+                                        <div class="d-flex justify-content-between align-items-center pb-2">
+                                            <div class="form-outline">
+                                                <input type="text" id="typeExp" class="form-control form-control-lg"
+                                                       placeholder="MM/YYYY"
+                                                       size="7" id="exp" minlength="7" maxlength="7"/>
+                                                <label class="form-label" for="typeExp">Expiration</label>
+                                            </div>
+                                            <div class="form-outline">
+                                                <input type="password" id="typeText2"
+                                                       class="form-control form-control-lg"
+                                                       placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3"
+                                                       maxlength="3"/>
+                                                <label class="form-label" for="typeText2">Cvv</label>
+                                            </div>
+                                            <button type="button" class="btn btn-info btn-lg btn-rounded" id="btnPayNow">
+                                                PayNow
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none" id="ResultPage">
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4 mt-4">Appointment Result</h3>
+            <div class="col-lg-12 p-0">
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3 bg-primary text-white">
+                                <p class="m-0 font-weight-bold">Appointment Result Details</p>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>ID</strong></label>
+                                                <input id="apResultID"
+                                                       class="form-control"
+                                                       type="text"
+                                                       disabled
+                                                       placeholder="id"
+                                                       name="apResultID">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Patient ID</strong></label>
+                                                <input id="apResultPatientId"
+                                                       class="form-control"
+                                                       type="text"
+                                                       placeholder="patient id"
+                                                       disabled
+                                                       name="apResultPatientId">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>DateTime</strong></label>
+                                                <input id="apResultDateTime"
+                                                       class="form-control"
+                                                       type="datetime-local"
+                                                       placeholder="Date Time"
+                                                       name="apResultDateTime">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Doctor ID</strong></label>
+                                                <input id="apResultDoctorId"
+                                                       class="form-control"
+                                                       type="text"
+                                                       placeholder="doctor id"
+                                                       name="apResultDoctorId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Test Name</strong></label>
+                                                <select id="resultTestingList" class="form-control">
+                                                    <option value="test1">Test 1</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Test Result</strong></label>
+                                                <input id="apResultTestResult"
+                                                       class="form-control"
+                                                       type="text"
+                                                       disabled
+                                                       placeholder="PENDING"
+                                                       name="apResultTestResult">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label><strong>Fee</strong></label>
+                                                <input id="apResultFee"
+                                                       class="form-control"
+                                                       type="text"
+                                                       disabled
+                                                       placeholder="fee"
+                                                       name="apResultFee">
+                                            </div>
+
+                                            <input id="apResultPay"
+                                                   class="form-control"
+                                                   type="text"
+                                                   disabled
+                                                   style="display: none"
+                                                   name="apResultPay">
+                                        </div>
+
+
+
+                                        <div class="col d-flex justify-content-center align-items-center">
+                                            <button id="btnDownload" class="btn btn-sm btnPay"
+                                                    type="button">
+                                                Report Download
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-2">
+                                        <button id="btnAppointmentResultUpdate" class="btn btn-sm btn-warning btnWidth"
+                                                type="button">
+                                            Update
+                                        </button>
+                                        <button id="btnAppointmentResultDelete" class="btn btn-sm btn-danger btnWidth"
+                                                type="button">
+                                            Delete
+                                        </button>
+                                        <button id="btnAppointmentResultGetAll" class="btn btn-sm btn-info btnWidth"
+                                                type="button">
+                                            Get All
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-box" style="height: 250px;">
+                <div class="table-responsive-lg">
+                    <table class="table">
+                        <thead id="tblAppointmentResult">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Patient ID</th>
+                            <th scope="col">Date Time</th>
+                            <th scope="col">Doctor ID</th>
+                            <th scope="col">Test Name</th>
+                            <th scope="col">Test Result</th>
+                            <th scope="col">Fee</th>
+                            <th scope="col">Pay Result</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblAppointmentResultBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/common.js"></script>
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/patientHome.js"></script>
+<script src="../assets/js/mdb.umd.min.js"></script>
+<script src="../assets/js/xlsx.full.min.js"></script>
+</body>
+</html>
